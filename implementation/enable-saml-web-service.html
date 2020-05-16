@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enabling SAML-Protected Web Services on the Agile PLM Server </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enabling SAML-Protected Web Services on the Agile PLM Server ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="enabling-saml-protected-web-services-on-the-agile-plm-server">Enabling SAML-Protected Web Services on the Agile PLM Server</h1>
+
+<p>This topic details how to activate <code>SCoreService.war</code> and validate the activated web services.  </p>
+<p>The following steps are applicable for an Agile PLM server running on a Windows operating system.  </p>
+<ol>
+<li>Navigate to the Windows Services Console and stop the AgilePLM server.</li>
+<li>Navigate to the <code>%AGILE_ROOT%\agileDomain</code> directory and make a backup copy of the file <code>application.ear</code>.<br>Sample location: <code>{agile-home}/agileDomain/applications/application.ear</code>, where <code>{agile-home}</code> is the Agile PLM home directory.</li>
+<li>Open the file <code>application.ear</code> with 7-Zip or a similar utility, and browse to the following location:<br><code>application.ear\META-INF\application.xml</code>.</li>
+<li>Drag the file <code>application.xml</code> out of the file archiver utility to a Windows directory.</li>
+<li>To activate the web service set <code>SCcoreService.war</code>, open the file <code>application.xml</code> for editing.</li>
+<li><p>Within the file <code>application.xml</code>:<br>a. Locate the module with ID WebModule_agilews, which refers to currently activated web services, and copy it.<br>b. Paste the copied module data and edit it as follows:  </p>
+<pre><code class="lang-cs">&lt;module id=&quot;WebModule_agilewsc&quot;&gt;
+  &lt;web&gt;
+     &lt;web-uri&gt;SCoreService.war&lt;/web-uri&gt;
+     &lt;context-root&gt;/SCoreService&lt;/context-root&gt;
+  &lt;/web&gt;
+&lt;/module&gt;
+</code></pre><p>c. Save the file and close it.</p>
+</li>
+<li>Drag the modified file <code>application.xml</code> back into the archive <code>application.ear</code>, replacing the original version in it.</li>
+<li>Drag <code>server-config.wsdd</code> from the file archiver utility to a Windows directory. To do this, navigate to <code>application.ear\SCoreService.war\WEB-INF\server-config.wsdd</code> and extract it outside the archive to edit it.</li>
+<li><p>Within the file <code>server-config.wsdd</code>, modify all except the first instances of <code>responseFlow</code> with the updated handler details. 
+Replace:  </p>
+<pre><code class="lang-cs">&lt;responseFlow&gt;  
+   &lt;handler type=&quot;java:com.agile.ws.security.AgileWSDoAllSender&quot;&gt;  
+      &lt;parameter name=&quot;signatureParts&quot; value=&quot;{Element}{http://schemas.xmlsoap.org/soap/envelope/}Body;{Element}{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Timestamp&quot;/&gt;  
+      &lt;parameter name=&quot;signaturePropFile&quot; value=&quot;crypto.properties&quot;/&gt;  
+      &lt;parameter name=&quot;passwordCallbackClass&quot; value=&quot;com.agile.ws.security.WSSecurityACLCallback&quot;/&gt;  
+      &lt;parameter name=&quot;action&quot; value=&quot;Timestamp Signature Encrypt&quot;/&gt;  
+      &lt;parameter name=&quot;encryptionUser&quot; value=&quot;useReqSigCert&quot;/&gt;  
+   &lt;/handler&gt;  
+&lt;/responseFlow&gt;
+</code></pre><p>With: </p>
+<pre><code class="lang-cs">&lt;responseFlow&gt;
+   &lt;handler type=&quot;java:org.apache.ws.axis.security.WSDoAllSender&quot;&gt;  
+      &lt;parameter name=&quot;signatureParts&quot; value=&quot;{Element}{http://schemas.xmlsoap.org/soap/envelope/}Body;{Element}{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}timestamp&quot;/&gt;  
+      &lt;parameter name=&quot;signaturePropFile&quot; value=&quot;crypto.properties&quot;/&gt;  
+      &lt;parameter name=&quot;passwordCallbackClass&quot; value=&quot;com.agile.ws.security.WSSecurityACLCallback&quot;/&gt;  
+      &lt;parameter name=&quot;action&quot; value=&quot;Timestamp Signature Encrypt&quot;/&gt;  
+      &lt;parameter name=&quot;encryptionUser&quot; value=&quot;useReqSigCert&quot;/&gt;  
+      &lt;parameter name=&quot;user&quot; value=&quot;serverkey&quot;/&gt;  
+      &lt;parameter name=&quot;encryptionKeyTransportAlgorithm&quot; value=&quot;http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p&quot;/&gt;  
+      &lt;parameter name=&quot;signatureKeyIdentifier&quot; value=&quot;DirectReference&quot;/&gt;  
+      &lt;parameter name=&quot;encryptionKeyIdentifier&quot; value=&quot;DirectReference&quot;/&gt;  
+   &lt;/handler&gt;  
+&lt;/responseFlow&gt;
+</code></pre></li>
+<li><p>Drag the modified file <code>server-config.wsdd</code> back to the archive <code>applications.ear</code>, replacing the original version in the archive.</p>
+</li>
+<li>When you close <code>application.ear</code>, the system detects that file <code>SCoreService.war</code> was modified. Click <strong>OK</strong> when asked to update the archive.</li>
+<li>Restart the Agile PLM application server to ensure all of the configuration changes take effect.</li>
+<li>Validate the web services:<br>Open the Agile URL to the updated reference.<br>Example: <code>http://&lt;plm_server&gt;:&lt;port&gt;/SCoreService/services</code><br>A list of web services on display confirms that they are working.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Implementing IM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Implementing IM ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="implementing-im">Implementing IM</h1>
+
+<p>Tasks that involve classes, statuses, and lookups share common rules, irrespective of the solution object they belong to.</p>
+<h2 id="class-management-in-im">Class management in IM</h2>
+<p>Define classes, class hierarchies, and class codes to establish reusable business objects in IM.</p>
+<h3 id="create-a-class">Create a class</h3>
+<p>Use classes and subordinate classes to define business object types.</p>
+<p>When you create a class, the class name that you provide is stored and used as an object type, at the time of business object creation.</p>
+<ol>
+<li>Select a class to edit the class name and description.<br>The <strong>Object Creation Allowed Indicator</strong> in the <strong>Edit Class</strong> page controls the possibility of creating business objects of the current class value. </li>
+<li>Select the indicator to ensure that the class name is available to use as a type when creating a business object.</li>
+</ol>
+<h4 id="class-code">Class code</h4>
+<p>A Class Code is a constant and unique value associated with each class across IM and associated PLM systems.</p>
+<p>You may define a class code only once when creating a class, as it is used during integration with external systems, and is required to remain a consistent internal code.</p>
+<div class="NOTE"><h5>Note</h5><p>You cannot edit the class code after class creation. However, you can delete the existing class, if it was not already used to create an object, and create a new class with the required class code.</p>
+</div>
+<h4 id="class-hierarchy">Class hierarchy</h4>
+<p>Class Hierarchy allows you to group and search for classes, based on class values or business objects types.</p>
+<p>Select a class in the <strong>Manage Class</strong> page to view the class hierarchy in the <strong>Edit Class</strong> page.</p>
+<h3 id="define-lookups">Define lookups</h3>
+<p>Use standard lookups in IM to define the following values in Requirements, Concept, and Portfolio modules during implementation:</p>
+<ul>
+<li>type</li>
+<li>status</li>
+<li>priority</li>
+<li>scope</li>
+<li>compliance</li>
+<li>resource pool</li>
+<li>metrics</li>
+<li>lifecycle phases</li>
+<li>rank</li>
+</ul>
+<h2 id="manage-planning-periods">Manage planning periods</h2>
+<p>Product portfolio planning period is the time period during which the portfolio objects collect data for analysis. To define a planning period:</p>
+<ol>
+<li>Create planning period unit.
+Enter the start date, number of units and specify the duration (either monthly or quarterly). This action creates units with default labels that you cannot edit, except for unit names.</li>
+<li>Provide the start date planning period unit, end date planning period unit, and select the planning period unit from the choice list.  <ul>
+<li>IM creates columns in the <strong>Manage Resource Capacity</strong> table dynamically; the number of planning period units determines how they appear.</li>
+<li>The time line in the Schedule Gantt, Resource Gantt and Launch Gantt display is based on the number of planning period units.</li>
+</ul>
+</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

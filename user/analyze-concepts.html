@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Analyzing concepts </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Analyzing concepts ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="analyzing-concepts">Analyzing concepts</h1>
+
+<p>Analyze a concept in terms of target costs, compliance, requirements fulfilled, or similar parameters to make informed decisions on the concept&#39;s lifecycle.</p>
+<h2 id="roll-up-a-concept">Roll-up a concept</h2>
+<p>To compare target and actual metrics of units in a concept structure, click the <em>Roll-up</em> button. This action calculates the variance in the actual and target metric attributes across all units of the concept structure, as applicable.<br>In the <em>Metrics</em> view, a warning icon next to concept structure units indicates unfavorable variance values.</p>
+<p>A roll-up calculates the following metrics:</p>
+<ul>
+<li>Cost, weight, and power consumption</li>
+<li>Compliance</li>
+<li>Fulfilled requirements</li>
+<li>Status</li>
+<li>Concept score</li>
+</ul>
+<div class="tabGroup" id="tabgroup_VEBAXxETvK">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_VEBAXxETvK_cost-weight-and-power-consumption" role="tab" aria-controls="tabpanel_VEBAXxETvK_cost-weight-and-power-consumption" data-tab="cost-weight-and-power-consumption" tabindex="0" aria-selected="true">Cost, weight, and power consumption</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_VEBAXxETvK_compliance" role="tab" aria-controls="tabpanel_VEBAXxETvK_compliance" data-tab="compliance" tabindex="-1">Compliance</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_VEBAXxETvK_fulfilled-requirements" role="tab" aria-controls="tabpanel_VEBAXxETvK_fulfilled-requirements" data-tab="fulfilled-requirements" tabindex="-1">Fulfilled requirements</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_VEBAXxETvK_status" role="tab" aria-controls="tabpanel_VEBAXxETvK_status" data-tab="status" tabindex="-1">Status</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_VEBAXxETvK_score" role="tab" aria-controls="tabpanel_VEBAXxETvK_score" data-tab="score" tabindex="-1">Score</a>
+</li>
+</ul>
+<section id="tabpanel_VEBAXxETvK_cost-weight-and-power-consumption" role="tabpanel" data-tab="cost-weight-and-power-consumption">
+<p>Aggregates of the total values of linked items, concept components, and embedded concepts, up to the top-level concept.</p>
+<p>Total cost calculations:  </p>
+<ul>
+<li>Total cost of an individual item or concept component = Material Cost + Non-Material Cost  </li>
+<li>Total cost of a concept component assembly = Non-Material Cost + Aggregate of (Total cost of each item or component * Respective Quantities per Assembly)  </li>
+<li>Total Weight of a concept component assembly = Aggregate of (Actual Weights of each linked item, concept component, and embedded concept * Respective Quantities)  </li>
+<li>Total Power Consumption of a concept component assembly = Aggregate of (Actual Power Consumption of each linked item, concept component and embedded concept * Respective Quantities)</li>
+</ul>
+</section>
+<section id="tabpanel_VEBAXxETvK_compliance" role="tabpanel" data-tab="compliance" aria-hidden="true" hidden="hidden">
+<p>The compliance status of a concept component or a linked item defines the compliance of the next higher-level component.  </p>
+<p>The compliance statuses of items are read directly from PLM. They are mapped as either compliant or noncompliant items in CDM, depending on the completeness of information available.<br>A noncompliant item or component renders its higher-level component noncompliant also.      </p>
+</section>
+<section id="tabpanel_VEBAXxETvK_fulfilled-requirements" role="tabpanel" data-tab="fulfilled-requirements" aria-hidden="true" hidden="hidden">
+<p>The number of assigned and fulfilled requirements per individual components in the concept structure, as applicable.<br>This analysis aids in fine-tuning the accuracy of a proposed concept design in meeting user needs.</p>
+</section>
+<section id="tabpanel_VEBAXxETvK_status" role="tabpanel" data-tab="status" aria-hidden="true" hidden="hidden">
+<p>The statuses of individual components and linked items in a concept assembly decide the aggregated status of the higher-level component, upto the top-level concept.  </p>
+<p>You can link items from PLM in the concept structure if they are in either conceptual, preliminary, or production stage.</p>
+</section>
+<section id="tabpanel_VEBAXxETvK_score" role="tabpanel" data-tab="score" aria-hidden="true" hidden="hidden">
+<p>Assessment of solution alternatives against design objectives.  </p>
+<p>Concept-level scores calculation:</p>
+<ul>
+<li>the number of items in the structure, compared to concept components. Reuse of items scores extra points.</li>
+<li>the number of items with scores higher than the target value 85. A high percentage of high-scoring items in the structure raises the concept score.</li>
+<li>the number of items missing data such as compliance status, lead time, number of manufacturers, or preferred status. Complete items rank high.</li>
+</ul>
+</section>
+</div>
+<h3 id="view-metrics-in-a-spider-chart">View metrics in a Spider Chart</h3>
+<p>Use a spider chart to view and compare aggregated metrics across multiple solution alternatives, in an graphical or tabular form.  </p>
+<p>Metrics are normalized - the chart calculates the relative deviation of each actual value from the target value, and displays positive or negative deviations from the target value.</p>
+<p>The <em>Table view</em> summarizes the data of the Spider Chart (calculated variance and metrics per solution alternatives) for quick reference.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Finding the optimum solution alternative </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Finding the optimum solution alternative ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="finding-the-optimum-solution-alternative">Finding the optimum solution alternative</h1>
+
+<p>This section details a sample workflow to find the right solution alternative based on metrics and concept-level scores.</p>
+<h2 id="use-case">Use-case</h2>
+<p>Your team has been asked to modify the existing model of a mountain bike to meet certain requirements received as feedback from users. The mountain bike and its components exist in a PLM system as an item structure and items respectively.  </p>
+<p>The primary requirements are:</p>
+<ul>
+<li>Reduce cost from $680 to $470</li>
+<li>Increase power from 35hz to 40hz</li>
+</ul>
+<p>The detailed requirement specifications include:</p>
+<ul>
+<li>Reduce the size of the air box to improve efficiency and power</li>
+<li>Improve the exhaust system to increase the power</li>
+<li>Implement high flow rates and outstanding oil filtration for better power</li>
+</ul>
+<p>The following table summarizes key decisions to take in this scenario:</p>
+<table>
+<thead>
+<tr>
+<th>Decisions to Consider</th>
+<th>In This Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How can the existing PLM items be used in the concept design?</td>
+<td>Convert existing items to concept components</td>
+</tr>
+<tr>
+<td>How are requirements and metrics correlated?</td>
+<td>Map requirements to components in the concept structure</td>
+</tr>
+<tr>
+<td>How can the concept structure accommodate multiple concept designs in parallel?</td>
+<td>Assign components to solution alternatives</td>
+</tr>
+<tr>
+<td>How do I ascertain the most suitable concept design?</td>
+<td>Modify component specifications<br>Calculate metrics and compare solution alternatives<br>Determine the concept design that fulfils requirements</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Complete the following actions before proceeding to the next task:</p>
+<ol>
+<li>Convert existing items to components in the concept</li>
+<li>Assign components to solution alternatives</li>
+</ol>
+<p>The structure and component specifications of the newly-created concept <em>Mountain Bike</em> in this example are tabulated here. The units <em>Air Box, Exhaust System</em>, and <em>Oil Filter</em> are PLM items that have been converted to components.</p>
+<table>
+<thead>
+<tr>
+<th>Concept Component</th>
+<th>Default</th>
+<th>Solution Alternative 2</th>
+<th>Solution Alternative 3</th>
+<th>Cost</th>
+<th>Power</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATV Air Box</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>330</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Air Box</td>
+<td></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>200</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Exhaust System</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>190</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Oil Filter</td>
+<td></td>
+<td></td>
+<td>Yes</td>
+<td>80</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cartridge Oil Filter</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td>140</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Wrench Off Oil Filter</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>145</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>The following actions are optional but recommended:</p>
+<ol>
+<li>Enhance specifications of the converted components Air Box, Exhaust System, and Oil Filter.<br>Reuse existing PLM items by converting them to concept components in the structure, and modifying specifications according to the requirements. The changes in component specifications can be translated into item enhancement requests in the PLM system.</li>
+<li>Map requirements to components in the concept structure.</li>
+</ol>
+<h3 id="step-1-calculate-metrics">Step 1. Calculate metrics</h3>
+<ol>
+<li>On the <em>Edit Concept</em> page, click the concept root node Mountain Bike and assign the following specifications to it: <em>Target Cost</em> <code>470</code> and <em>Target Power</em> <code>40</code>.</li>
+<li>Click the <em>Metrics</em> link above the concept structure region to roll up and view metrics.</li>
+<li>Click the <em>Recalculate</em> icon to view a roll up of assigned metrics.</li>
+</ol>
+<h3 id="step-2-compare-and-select-a-solution-alternative">Step 2. Compare and select a Solution Alternative</h3>
+<p>View and analyze the metric calculations of each concept.</p>
+<ol>
+<li>On the <em>Edit Concept</em> page in <em>Metrics</em> view, select the <em>Solution Alternative</em> menu and click <em>Default</em>.<br>The calculated power exceeds the target power as indicated by the Warning icon.</li>
+<li>Repeat step 1 to view the calculated metrics for Solution Alternative 2 and Solution Alternative 3 also.</li>
+</ol>
+<p>The cost and power metrics of each solution alternative are tabulated below.</p>
+<table>
+<thead>
+<tr>
+<th>Solution Alternative</th>
+<th>Default</th>
+<th>Solution Alternative 2</th>
+<th>Solution Alternative 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost</td>
+<td>665</td>
+<td>530</td>
+<td>470</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>45</td>
+<td>39</td>
+<td>35</td>
+</tr>
+</tbody>
+</table>
+<p>Solution Alternative 2 offers an optimum solution to the primary requirements of <em>Target Cost</em> <code>470</code> and <em>Target Power</em> <code>40</code>, so you may choose to convert this alternative to a PLM item structure, or request approval for the concept Mountain Bike itself.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
