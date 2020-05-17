@@ -32,7 +32,7 @@
   "index.html": {
     "href": "index.html",
     "title": "Welcome to my DocFX site",
-    "keywords": "Welcome to my DocFX site Hi there! Thanks for stopping by. Here’s a quick summary of this website: Tools used: DocFX and Markdown Content source: Chapters from DITA-based implementation and user guides that I authored in a previous role. The implementation guide had multiple contributors. I'm only adding chapters that I authored and owned entirely, back in 2014! Happy to share original PDFs if you'd like to see them. This website is WIP. I'm adding chapters as I find time. Have 4 more to go. Yes, that’s my cat posing as the website logo! :-) Version 0.1 Copyright 2020 Audience Curious peers and hiring managers"
+    "keywords": "Welcome to my DocFX site Hi there! Thanks for stopping by. Here’s a quick summary of this website: Tools used: DocFX and Markdown Content source: Chapters from DITA-based implementation and user guides that I authored in a previous role. The implementation guide had multiple contributors. I'm adding chapters (have a few more to go) that I authored and owned entirely, back in 2014. Happy to share PDFs of my original guides if you'd like to see them. For now, do check out the implementation guide and user guide in the site tabs. Yes, that’s my cat posing as the website logo. :-) Version 0.1 Copyright 2020 Audience Curious peers and hiring managers"
   },
   "user/analyze-concepts.html": {
     "href": "user/analyze-concepts.html",
