@@ -82,12 +82,12 @@
 <p>This topic details how to activate <code>SCoreService.war</code> and validate the activated web services.  </p>
 <p>The following steps are applicable for an Agile PLM server running on a Windows operating system.  </p>
 <ol>
-<li>Navigate to the Windows Services Console and stop the AgilePLM server.</li>
+<li>Navigate to the Windows Services Console and stop the <code>AgilePLM</code> server instance.</li>
 <li>Navigate to the <code>%AGILE_ROOT%\agileDomain</code> directory and make a backup copy of the file <code>application.ear</code>.<br>Sample location: <code>{agile-home}/agileDomain/applications/application.ear</code>, where <code>{agile-home}</code> is the Agile PLM home directory.</li>
 <li>Open the file <code>application.ear</code> with 7-Zip or a similar utility, and browse to the following location:<br><code>application.ear\META-INF\application.xml</code>.</li>
 <li>Drag the file <code>application.xml</code> out of the file archiver utility to a Windows directory.</li>
 <li>To activate the web service set <code>SCcoreService.war</code>, open the file <code>application.xml</code> for editing.</li>
-<li><p>Within the file <code>application.xml</code>:<br>a. Locate the module with ID WebModule_agilews, which refers to currently activated web services, and copy it.<br>b. Paste the copied module data and edit it as follows:  </p>
+<li><p>Within the file <code>application.xml</code>:<br>a. Locate the module with ID <code>WebModule_agilews</code>, which refers to currently activated web services, and copy it.<br>b. Paste the copied module data and edit it as follows:  </p>
 <pre><code class="lang-cs">&lt;module id=&quot;WebModule_agilewsc&quot;&gt;
   &lt;web&gt;
      &lt;web-uri&gt;SCoreService.war&lt;/web-uri&gt;
@@ -97,7 +97,7 @@
 </code></pre><p>c. Save the file and close it.</p>
 </li>
 <li>Drag the modified file <code>application.xml</code> back into the archive <code>application.ear</code>, replacing the original version in it.</li>
-<li>Drag <code>server-config.wsdd</code> from the file archiver utility to a Windows directory. To do this, navigate to <code>application.ear\SCoreService.war\WEB-INF\server-config.wsdd</code> and extract it outside the archive to edit it.</li>
+<li>Navigate to <code>application.ear\SCoreService.war\WEB-INF\server-config.wsdd</code> and extract it outside the archive to edit it.</li>
 <li><p>Within the file <code>server-config.wsdd</code>, modify all except the first instances of <code>responseFlow</code> with the updated handler details. 
 Replace:  </p>
 <pre><code class="lang-cs">&lt;responseFlow&gt;  
@@ -127,7 +127,7 @@ Replace:  </p>
 <li><p>Drag the modified file <code>server-config.wsdd</code> back to the archive <code>applications.ear</code>, replacing the original version in the archive.</p>
 </li>
 <li>When you close <code>application.ear</code>, the system detects that file <code>SCoreService.war</code> was modified. Click <strong>OK</strong> when asked to update the archive.</li>
-<li>Restart the Agile PLM application server to ensure all of the configuration changes take effect.</li>
+<li>Restart the Agile PLM application server to ensure all the configuration changes take effect.</li>
 <li>Validate the web services:<br>Open the Agile URL to the updated reference.<br>Example: <code>http://&lt;plm_server&gt;:&lt;port&gt;/SCoreService/services</code><br>A list of web services on display confirms that they are working.</li>
 </ol>
 </article>
