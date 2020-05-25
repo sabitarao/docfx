@@ -87,7 +87,7 @@
 <li>Open the file <code>application.ear</code> with 7-Zip or a similar utility, and browse to the following location:<br><code>application.ear\META-INF\application.xml</code>.</li>
 <li>Drag the file <code>application.xml</code> out of the file archiver utility to a Windows directory.</li>
 <li>To activate the web service set <code>SCcoreService.war</code>, open the file <code>application.xml</code> for editing.</li>
-<li><p>Within the file <code>application.xml</code>:<br>a. Locate the module with ID <code>WebModule_agilews</code>, which refers to currently activated web services, and copy it.<br>b. Paste the copied module data and edit it as follows:  </p>
+<li><p>Within the file <code>application.xml</code>:<br>a. Locate the module with ID <code>WebModule_agilews</code>, which refers to currently activated web services.<br>b. Edit it as follows:  </p>
 <pre><code class="lang-cs">&lt;module id=&quot;WebModule_agilewsc&quot;&gt;
   &lt;web&gt;
      &lt;web-uri&gt;SCoreService.war&lt;/web-uri&gt;
@@ -98,8 +98,7 @@
 </li>
 <li>Drag the modified file <code>application.xml</code> back into the archive <code>application.ear</code>, replacing the original version in it.</li>
 <li>Navigate to <code>application.ear\SCoreService.war\WEB-INF\server-config.wsdd</code> and extract it outside the archive to edit it.</li>
-<li><p>Within the file <code>server-config.wsdd</code>, modify all except the first instances of <code>responseFlow</code> with the updated handler details. 
-Replace:  </p>
+<li><p>Within the file <code>server-config.wsdd</code>, modify all except the first instances of <code>responseFlow</code> with the updated handler details.<br>Replace:  </p>
 <pre><code class="lang-cs">&lt;responseFlow&gt;  
    &lt;handler type=&quot;java:com.agile.ws.security.AgileWSDoAllSender&quot;&gt;  
       &lt;parameter name=&quot;signatureParts&quot; value=&quot;{Element}{http://schemas.xmlsoap.org/soap/envelope/}Body;{Element}{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Timestamp&quot;/&gt;  
